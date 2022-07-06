@@ -38,3 +38,40 @@ for(var i=1;i<=5;i++){
     }close(i)
 }
 // whole loop runs ar once and all the function calls are put in a stack
+
+
+
+// closures for providing privacy or encapsulete
+
+function counter(){
+    var count=0;
+    function increment(){
+        count++;
+        console.log(count);
+    }return(increment)
+}
+
+var counterVar=counter()
+counterVar()
+counterVar()
+
+
+// to better implement the above counter we can use Constructor function
+
+function Counter(){
+    var count=0;
+    this.increment=function(){
+        count++;
+        console.log(count);
+    }
+    this.decrement=function(){
+        count--;
+         console.log(count);
+    }
+}
+
+var counter=new Counter()
+counter.increment()
+counter.decrement()
+
+
